@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>My Awesome Player</title>
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+  <link rel="stylesheet" type="text/css" href="./styles/audio-player.css">
+  <link rel="stylesheet" type="text/css" href="./styles/header.css">
+  <link rel="stylesheet" type="text/css" href="./styles/playlist.css">
+  <link rel="stylesheet" type="text/css" href="./styles/main.css">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top" style="background: #1c1c1cd6;">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <!-- Collection of nav links and other content for toggling -->
+      <div id="navbarCollapse" class="collapse navbar-collapse">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6">
+              <ul class="nav navbar-nav">
+                <li id="add_new_playlist" class="add_new_playlist">
+                  <span class="glyphicon glyphicon-plus"></span> Add new playlist
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-offset-3 col-md-3">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+
+                  <div class="input-group add-on">
+                    <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+                    <div class="input-group-btn">
+                      <button class="btn btn-default">
+                        <i class="glyphicon glyphicon-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container-fluid-fixed">
+    <div class="jumbotron" id="playlist-jumbotron">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12" id="playlist-audio-container">
+
+          </div>
+
+          <div class="col-md-12">
+            <div id="playlist-container">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal HTML embedded directly into document -->
+  <div id="add_playlist_modal" class="modal">
+    <div class="container-fluid">
+      <div class="row">
+        <h2>Add Playlist</h2>
+        <hr/>
+        <form action="" id="add_playlist_form">
+          <div class="add_playlist_body" id="add_playlist_body">
+
+          </div>
+
+          <div class="row">
+            <button type="reset" class="btn btn-default">Reset Fields</button>
+            <button type="submit" class="btn btn-default pull-right">Next</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="add_playlist_modal_songs" class="modal">
+    <div class="container-fluid">
+      <div class="row">
+        <h2>Add Playlist Songs:</h2>
+        <hr/>
+        <form action="" id="add_songs_form">
+          <div class="add_songs_form_body">
+
+          </div>
+          <button type="button" id="add_new_song_button" class="btn btn-default">Add new song</button>
+          <button type="submit" class="btn btn-default pull-right">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- UPDATE PLAYLIST MODAL -->
+  <div id="update_playlist_modal" class="modal">
+    <div class="container-fluid">
+      <div class="row">
+        <h2>Update Playlist</h2>
+        <hr/>
+        <form action="" id="update_playlist_form">
+          <div class="update_playlist_body">
+            <div class="update_playlist_form">
+              <div class="form-group">
+                <label for="update_playlistName">Playlist Name: </label>
+                <input type="text" class="form-control" id="update_playlistName" name="name" placeholder="Playlist Name">
+              </div>
+              <div class="form-group">
+                <label for="update_playlistUrl">Playlist image url:</label>
+                <input type="text" class="form-control" id="update_playlistUrl" name="url" placeholder="Playlist image url">
+              </div>
+            </div>
+
+            <div class="update_playlist_image">
+              <img class="img img-responsive update_playlist_image_preview" src="images/noimg.jpg" alt="preview" />
+            </div>
+          </div>
+
+          <div class="row">
+            <button type="reset" class="btn btn-default">Reset Fields</button>
+            <button type="submit" class="btn btn-default pull-right">Next</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="update_playlist_modal_songs" class="modal">
+    <div class="container-fluid">
+      <div class="row">
+        <h2>Update Playlist Songs:</h2>
+        <hr/>
+        <form action="" id="update_songs_form">
+          <div class="update_songs_form_body">
+
+          </div>
+          <button type="button" id="update_new_song_button" class="btn btn-default">Add new song</button>
+          <button type="submit" class="btn btn-default pull-right">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="delete_playlist_modal" class="modal">
+    <div class="container-fluid">
+      <div class="row">
+        <h2>Delete Playlist</h2>
+        <hr/>
+        <p>Are you sure you want to delete this playlist?</p>
+        <button type="button" id="playlist_remove" class="btn btn-default">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+
+  <script src="js/jquery-ui-slider.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+
+  <script src="./js/jquery_lettering.js"></script>
+
+  <script src="./js/circletype.min.js"></script>
+
+  <script src="./js/jquery.fittext.js"></script>
+
+  <script src="./js/jquery.modal.min.js"></script>
+
+  <script src="./js/jquery.validate.min.js"></script>
+
+  <script src="./js/additional-methods.min.js"></script>
+
+  <script src="./js/audioPlayer.js"></script>
+
+  <script src="./js/script.js"></script>
+
+</body>
+
+</html>

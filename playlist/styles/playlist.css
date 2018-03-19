@@ -1,0 +1,236 @@
+
+
+#playlist-jumbotron {
+    min-height: 100vh;
+    margin: 0;
+    background: url("../images/corey-blaz-5003-unsplash.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+
+@media screen and (min-width: 768px){
+    .playlist-jumbotron {
+        min-height: 100vh;
+        margin: 0;
+    }
+}
+
+.playlist-audio-panel {
+    background-color: #f95353c7;
+    box-shadow: 0px 0px 13px 0px #636363;
+    width: 55%;
+    min-height: 380px;
+    border-radius: 200px;
+}
+
+.playlist-audio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+}
+    
+.playlist-title {
+    font-family: 'Mina', sans-serif;
+    color: white;
+    top: 45px;
+    position: relative;
+    height: 65px;
+}
+
+.playlist-body {
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+.playlist-thumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border-radius: 100%;
+    overflow: hidden;
+    /* background: url(http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/disc-vinyl-icon.png); */
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 250px;
+    box-shadow: 0px 0px 25px 0px black;
+    opacity: 0.85;
+}
+
+#playlist-container {
+    padding: 75px 0 75px 0;
+}
+
+.playlist-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 82px;
+    height: 82px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.9;
+    z-index: 2;
+}
+
+.playlist-icon:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+.playlist-icon span{
+    font-size: 2.6em;
+}
+
+.playlist-buttons{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 65px;
+}
+
+.playlist-buttons span{
+    background-color: white;
+    padding: 5px;
+    margin: 2px;
+    border-radius: 50%;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+.playlist-buttons span:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+
+.img-thumb{
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    position: absolute;
+
+}
+
+.playlist-player{
+    opacity: 0.85;
+    transition: 0.5s all;
+}
+
+.playlist-player:hover{
+    opacity: 1;
+}
+
+.playlist-audio-body{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 380px;
+}
+
+.player-audio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50%;
+    height: 320px;
+}
+
+.player-audio-songs{
+    width: 50%;
+    height: 320px;
+}
+
+.player-audio-playlist{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    background: white;
+    border-radius: 50%;
+}
+
+#player-playlist-img{
+    position: absolute;
+    /* animation-name: playlist-circled; */
+    animation-duration: 4000000000s;
+    animation-iteration-count: infinite;
+}
+
+/* Standard syntax */
+@keyframes playlist-circled {
+    0% {transform: rotate(0deg)}
+    100% {transform: rotate(3600000000000deg)}
+}
+
+.audio-player{
+    margin-top: 40px;
+}
+
+.player-list-songs{
+    padding: 15px;
+}
+
+.add_playlist_body, .update_playlist_body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 0px 35px 0px;
+    min-height: 150px;
+}
+
+.add_playlist_form{
+    width: 70%;
+}
+
+.update_playlist_form{
+    width: 70%;
+}
+
+.add_playlist_image, .update_playlist_image{
+    margin-left: 60px;
+    width: 30%;
+}
+
+.add_playlist_image_preview, .update_playlist_image_preview{
+    width: 200px;
+    height: 200px;
+    box-shadow: 0px 0px 10px 0px #999;
+}
+
+.add_playlist_songs_body, .update_playlist_songs_body{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0px 5px 0px;
+}
+
+.add_new_playlist_song{
+    width: 300px;
+}
+
+.playlist-audio-panel-buttons span{
+    padding: 20px;
+    margin: 2px 0 2px 0;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.playlist-audio-panel-buttons span:hover{
+   cursor: pointer;
+}
+
+.playlist-audio-panel-buttons{
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;   
+}
+
+.list-group{
+    width: 70%;
+    overflow: auto;
+    max-height: 160px;
+}

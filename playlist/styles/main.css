@@ -1,0 +1,22 @@
+
+@import url('https://fonts.googleapis.com/css?family=Mina');
+
+body { 
+    margin: 0;
+    padding: 0;
+}
+
+.modal{
+    overflow: visible;
+    max-width: 750px;
+}
+
+.blocker{
+    z-index: 1050;
+}
+
+#add_new_playlist{
+    font-family: 'Mina', sans-serif;
+    font-size: 2.4rem;
+    color: floralwhite;
+}
